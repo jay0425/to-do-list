@@ -6,11 +6,21 @@
 // 끝남탭은, 끝난 아이템만, 진행중탭은 진행중인 아이템만.
 // 전체 탭을 누르면 다시 전체 아이템으로 돌아옴.
 
+let underLine = document.getElementById('under-line');
+let menus = document.querySelectorAll('.tab');
+
 let taskInput = document.getElementById('task-input');
 let addButton = document.getElementById('add-button');
 let taskList = [];
 
+menus.forEach((menu) => menu.addEventListener('click', (e) => indicator(e)));
 addButton.addEventListener('click', addTask);
+
+function indicator(e) {
+  underLine.style.left = e.currentTarget.offsetLeft + 'px';
+  underLine.style.width = e.currentTarget.offsetWidth + 'px';
+  underLine.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + 'px';
+}
 
 function addTask() {
   let taskContent = taskInput.value;
