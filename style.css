@@ -5,6 +5,11 @@ body {
   background-size: cover;
 }
 
+.input-area {
+  display: flex;
+  align-items: center;
+}
+
 .container {
   background-color: white;
   min-height: 100vh;
@@ -28,7 +33,7 @@ body {
 
 #under-line {
   height: 4px;
-  background-color: pink;
+  background-color: skyblue;
   position: absolute;
   width: 80px;
   left: 0px;
@@ -41,4 +46,69 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1em;
+}
+
+.task-complete {
+  background-color: lightgray;
+}
+
+.task-done {
+  text-decoration: line-through;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.fa-circle-plus {
+  color: lightgray;
+  margin-left: 2px;
+}
+
+.fa-circle-plus:hover {
+  font-size: 1.5em;
+  transition: 0.2s ease-out;
+}
+
+.fa-circle-plus:not(:hover) {
+  transition: 0.3s ease-out;
+}
+
+.fa-check {
+  color: rgb(142, 211, 40);
+}
+
+.fa-check:hover {
+  font-size: 1.3em;
+  transition: 0.2s ease-out;
+}
+
+.fa-check:not(:hover) {
+  transition: 0.3s ease-out;
+}
+
+.fa-rotate-right {
+  color: gray;
+}
+
+.fa-rotate-right:hover {
+  font-size: 1.2em;
+  transition: 0.5s ease-out;
+}
+.fa-rotate-right:not(:hover) {
+  transition: 0.3s ease-out;
+}
+
+.fa-trash {
+  color: red;
+}
+
+.fa-trash:hover {
+  font-size: 1.2em;
+  transition: 0.2s ease-out;
+}
+
+.fa-trash:not(:hover) {
+  transition: 0.3s ease-out;
 }
