@@ -112,3 +112,7 @@ button {
 .fa-trash:not(:hover) {
   transition: 0.3s ease-out;
 }
+
+.task-tabs div {
+  cursor: pointer;
+}
