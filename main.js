@@ -37,7 +37,7 @@ for (let i = 1; i < tabs.length; i++) {
 
 function addTask() {
   let taskValue = taskInput.value;
-  if (taskValue === '') return alert('할 일을 입력해주세요😃');
+  if (taskValue === '') return alert('할 일을 입력해주세요~');
 
   let task = {
     id: randomIDGenerate(),
