@@ -104,7 +104,7 @@ function toggleComplete(id) {
     }
   }
   console.log(taskList);
-  render();
+  filter();
 }
 
 function randomIDGenerate() {
@@ -121,28 +121,6 @@ function deleteTask(id) {
   filter();
 }
 
-// function filter(event) {
-//   mode = event.target.id;
-//   filterList = [];
-
-//   if (mode === 'all') {
-//     render();
-//   } else if (mode === 'ongoing') {
-//     for (let i = 0; i < taskList.length; i++) {
-//       if (taskList[i].isComplete === false) {
-//         filterList.push(taskList[i]);
-//       }
-//     }
-//   } else if (mode === 'done') {
-//     for (let i = 0; i < taskList.length; i++) {
-//       if (taskList[i].isComplete === true) {
-//         filterList.push(taskList[i]);
-//       }
-//     }
-//   }
-//   render();
-// }
-
 function filter(event) {
   if (event) {
     mode = event.target.id;
@@ -151,13 +129,13 @@ function filter(event) {
 
   if (mode === 'ongoing') {
     for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].isComplete == false) {
+      if (taskList[i].isComplete === false) {
         filterList.push(taskList[i]);
       }
     }
   } else if (mode === 'done') {
     for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].isComplete == true) {
+      if (taskList[i].isComplete === true) {
         filterList.push(taskList[i]);
       }
     }
