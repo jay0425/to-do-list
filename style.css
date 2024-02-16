@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   background-image: url('images/background.jpg');
@@ -13,15 +18,28 @@ body {
 
 .input-area {
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+
   position: relative;
   gap: 4px;
+
+  margin-bottom: 6px;
 }
 
 #task-input {
   border: 1px solid lightgray;
+  border-radius: 5px;
+
+  box-shadow: 0 2px 2px 0 lightgray;
+
   margin-top: 10px;
-  margin-bottom: 5px;
+  padding-left: 17px;
+
+  padding: 0 1em;
+
+  width: 86%;
 
   cursor: pointer;
 }
@@ -29,6 +47,7 @@ body {
 #task-input:focus {
   outline: none;
   border: none;
+  shadow: none;
   border-bottom: 2px solid rgb(190, 177, 231);
   transition: 0.5s;
   padding-top: 35px;
@@ -39,9 +58,9 @@ body {
   margin: 0;
   position: absolute;
   color: #8f8f8f;
-  font-size: 14px;
+  font-size: 0.88em;
   top: 13px;
-  left: 10px;
+  left: 17px;
   -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 }
@@ -69,27 +88,36 @@ body {
 
 .task-area {
   border: 1px solid lightgray;
+
+  border-radius: 5px;
+
+  box-shadow: 0 5px 5px 0 lightgray;
 }
 
 .task-tabs {
   display: flex;
   border-bottom: 1px solid lightgray;
   position: relative;
+  cursor: pointer;
 }
 
 .task-tabs div {
   padding: 1em;
 }
 
+.tab:hover {
+  color: rgb(190, 177, 231);
+}
+
 #under-line {
   height: 4px;
   background-color: rgb(190, 177, 231);
   position: absolute;
-  width: 80px;
+  width: 49px;
   left: 0px;
   top: 52px;
   padding: 0px;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 .task {
@@ -106,10 +134,56 @@ body {
   text-decoration: line-through;
 }
 
-button {
+.tab-button {
   border: none;
   background-color: transparent;
-  color: lightgray;
+}
+
+.tab-button:first-child {
+  margin-right: 20px;
+}
+
+#add-button {
+  width: 13%;
+  font-size: 0.88rem;
+  font-weight: 300;
+  border-radius: 5px;
+  border: 1px solid rgb(190, 177, 231);
+  background-color: #fff;
+}
+
+#add-button:hover {
+  border: 1px solid rgb(190, 177, 231);
+  background-color: rgb(190, 177, 231);
+  color: #fff;
+}
+
+@media (max-width: 800px) {
+  .input-area {
+    flex-direction: column;
+    gap: 0.5px;
+  }
+
+  #task-input {
+    width: 100%;
+  }
+
+  #add-button {
+    width: 100%;
+    font-size: 0.88rem;
+    font-weight: 300;
+    border-radius: 5px;
+    border: 1px solid rgb(190, 177, 231);
+    background-color: #fff;
+
+    margin-top: 6px;
+  }
+
+  #add-button:hover {
+    border: 1px solid rgb(190, 177, 231);
+    background-color: rgb(190, 177, 231);
+    color: #fff;
+  }
 }
 
 .fa-circle-plus {

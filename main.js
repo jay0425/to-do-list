@@ -26,7 +26,7 @@ addButton.addEventListener('click', addTask);
 function indicator(e) {
   underLine.style.left = e.currentTarget.offsetLeft + 'px';
   underLine.style.width = e.currentTarget.offsetWidth + 'px';
-  underLine.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + 'px';
+  underLine.style.top = e.currentTarget.offsetTop + (e.currentTarget.offsetHeight - 4) + 'px';
 }
 
 for (let i = 1; i < tabs.length; i++) {
@@ -67,11 +67,11 @@ function render() {
       resultHTML += `
       <div class="task task-complete" id="${list[i].id}">
      <div class="task-done">${list[i].taskContent}</div>
-      <div>
-        <button onclick="toggleComplete('${list[i].id}')">
+      <div >
+        <button class="tab-button" onclick="toggleComplete('${list[i].id}')">
           <i class="fa-solid fa-rotate-right fa-spin" ></i>
         </button>
-        <button onclick="deleteTask('${list[i].id}')">
+        <button class="tab-button" onclick="deleteTask('${list[i].id}')">
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>
@@ -82,10 +82,10 @@ function render() {
     <div class="task" id="${list[i].id}">
      <div>${list[i].taskContent}</div>
      <div>
-      <button onclick="toggleComplete('${list[i].id}')">
+      <button class="tab-button" onclick="toggleComplete('${list[i].id}')">
         <i class="fa-solid fa-check"></i>
       </button>
-      <button onclick="deleteTask('${list[i].id}')">
+      <button class="tab-button" onclick="deleteTask('${list[i].id}')">
         <i class="fa-solid fa-trash"></i>
       </button>
      </div>
@@ -118,29 +118,46 @@ function deleteTask(id) {
       break;
     }
   }
-  render();
+  filter();
 }
 
+// function filter(event) {
+//   mode = event.target.id;
+//   filterList = [];
+
+//   if (mode === 'all') {
+//     render();
+//   } else if (mode === 'ongoing') {
+//     for (let i = 0; i < taskList.length; i++) {
+//       if (taskList[i].isComplete === false) {
+//         filterList.push(taskList[i]);
+//       }
+//     }
+//   } else if (mode === 'done') {
+//     for (let i = 0; i < taskList.length; i++) {
+//       if (taskList[i].isComplete === true) {
+//         filterList.push(taskList[i]);
+//       }
+//     }
+//   }
+//   render();
+// }
+
 function filter(event) {
-  mode = event.target.id;
+  if (event) {
+    mode = event.target.id;
+  }
   filterList = [];
 
-  if (mode === 'all') {
-    // 전체 리스트를 보여준다.
-    render();
-  } else if (mode === 'ongoing') {
-    // 진행중인 아이템을 보여준다.
-    // task.isComplete=false
+  if (mode === 'ongoing') {
     for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].isComplete === false) {
+      if (taskList[i].isComplete == false) {
         filterList.push(taskList[i]);
       }
     }
   } else if (mode === 'done') {
-    // 끝나는 케이스
-    // task.isComplete=true
     for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].isComplete === true) {
+      if (taskList[i].isComplete == true) {
         filterList.push(taskList[i]);
       }
     }
